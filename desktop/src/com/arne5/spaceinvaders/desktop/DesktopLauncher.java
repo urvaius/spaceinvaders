@@ -9,11 +9,18 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 
 		TexturePacker.Settings settings = new TexturePacker.Settings();
-		TexturePacker.process(settings, "C:/Development/github/spaceinvaders/spaceimages","C:/Development/github/spaceinvaders/android/assets","pack");
+		//TexturePacker.process(settings, "C:/Development/github/spaceinvaders/spaceimages","C:/Development/github/spaceinvaders/android/assets","pack");
 
 
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title= "Space Invaders";
+
+		config.width=SpaceInvaders.WIDTH;
+		config.height=SpaceInvaders.HEIGHT;
+
+
 		new LwjglApplication(new SpaceInvaders(), config);
+
 	}
 }
