@@ -1,25 +1,37 @@
 package com.arne5.spaceinvaders.screen;
 
 import com.arne5.spaceinvaders.Assets;
-import com.arne5.spaceinvaders.Entity.EntityManager;
-import com.arne5.spaceinvaders.Entity.Player;
+import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 
-
-public class GameScreen extends Screen
+/**
+ * Created by urvaius on 9/21/14.
+ */
+public class GameOverScreen extends Screen
 	{
 		private OrthoCamera camera;
+		private Texture texture;
 
-		private EntityManager entityManager;
+		public GameOverScreen(boolean won)
+			{
+				if(won)
+					{
+						texture = Assets.GAME_WON;
+					}
+				else
+					{
+						texture = Assets.GAME_OVER;
+					}
+			}
+
+
 		@Override
 		public void create()
-
-			{   Assets.Load();
-				camera = new OrthoCamera();
-
-				entityManager = new EntityManager(10,camera);
+			{
+				camera= new OrthoCamera();
+				camera.resize();
 
 			}
 
@@ -27,21 +39,15 @@ public class GameScreen extends Screen
 		public void update()
 			{
 				camera.update();
-				entityManager.update();
-
 			}
 
 		@Override
 		public void render(SpriteBatch sb)
 			{
-				//start spritebatching
 				sb.setProjectionMatrix(camera.combined);
 				sb.begin();
 
-
-				entityManager.render(sb);
-
-
+				sb.draw(texture, SpaceInvaders.WIDTH/2-texture.getWidth()/2,SpaceInvaders.HEIGHT/2 -texture.getHeight()/2);
 				sb.end();
 			}
 

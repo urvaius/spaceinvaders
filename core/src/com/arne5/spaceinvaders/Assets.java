@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
+import java.lang.reflect.GenericDeclaration;
+
 /**
  * Created by urvaius on 9/2/14.
  */
@@ -41,6 +43,7 @@ public class Assets
 		public static Texture PLAYER= new Texture(Gdx.files.internal("playerShip1_green.png"));
 
 		public static Texture ENEMY= new Texture(Gdx.files.internal("enemyRed1.png"));
-
-
+		public static Texture MISSILE = new Texture(Gdx.files.internal("laserGreen05.png"));
+		public static Texture GAME_WON = new Texture(Gdx.files.internal("gamewon.png"));
+		public static Texture GAME_OVER = new Texture(Gdx.files.internal("gameover.png"));
 	}
