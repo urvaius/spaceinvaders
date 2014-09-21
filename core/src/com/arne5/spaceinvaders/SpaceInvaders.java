@@ -1,11 +1,10 @@
 package com.arne5.spaceinvaders;
 
-import com.arne5.spaceinvaders.screen.MenuScreen;
+import com.arne5.spaceinvaders.screen.GameScreen;
 import com.arne5.spaceinvaders.screen.ScreenManager;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class SpaceInvaders extends ApplicationAdapter
@@ -19,7 +18,7 @@ public class SpaceInvaders extends ApplicationAdapter
 	public void create ()
 		{
 			batch = new SpriteBatch();
-			ScreenManager.setScreen(new MenuScreen());
+			ScreenManager.setScreen(new GameScreen());
 
 		}
 	@Override
@@ -41,7 +40,7 @@ public class SpaceInvaders extends ApplicationAdapter
 
 		if (ScreenManager.getCurrentScreen()!=null)
 			{
-				ScreenManager.getCurrentScreen().Update();
+				ScreenManager.getCurrentScreen().update();
 			}
 		if (ScreenManager.getCurrentScreen() !=null)
 			{

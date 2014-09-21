@@ -37,11 +37,11 @@ public abstract class Entity
 				return pos;
 			}
 
-		public abstract void Update();
+		public abstract void update();
 
 
 
-		public void Render(SpriteBatch sb)
+		public void render(SpriteBatch sb)
 
 			{
 				//for texture way

@@ -16,7 +16,7 @@ public class Assets
 		//fix all this using texture atlas after
 		public static TextureAtlas atlas;
 		//public static Texture PLAYER;
-		//public static Sprite PLAYER;
+		//public static Sprite PLAYER_SPRITE;
 		//public static Texture PLAYER_TEXTURE;
 
 
@@ -28,6 +28,10 @@ public class Assets
 
 				//PLAYER = atlas.createSprite("playerShip1_green");
 				//PLAYER_TEXTURE= PLAYER.
+				//get texture from sprite atlas
+				//PLAYER_SPRITE= atlas.createSprite("playerShip1_green");
+				//PLAYER_TEXTURE = PLAYER_SPRITE.getTexture();
+
 
 
 			}

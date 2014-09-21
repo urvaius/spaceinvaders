@@ -1,30 +1,34 @@
 package com.arne5.spaceinvaders.screen;
 
 import com.arne5.spaceinvaders.Assets;
+import com.arne5.spaceinvaders.Entity.EntityManager;
 import com.arne5.spaceinvaders.Entity.Player;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 
-public class MenuScreen extends Screen
+public class GameScreen extends Screen
 	{
 		private OrthoCamera camera;
-		private Player player;
+
+		private EntityManager entityManager;
 		@Override
 		public void create()
 
 			{   Assets.Load();
 				camera = new OrthoCamera();
-				player = new Player(new Vector2(230,15),new Vector2(0,0));
+
+				entityManager = new EntityManager();
 
 			}
 
 		@Override
-		public void Update()
+		public void update()
 			{
 				camera.update();
-				player.Update();
+				entityManager.update();
+
 			}
 
 		@Override
@@ -34,8 +38,8 @@ public class MenuScreen extends Screen
 				sb.setProjectionMatrix(camera.combined);
 				sb.begin();
 
-				player.Render(sb);
 
+				entityManager.render(sb);
 
 
 				sb.end();

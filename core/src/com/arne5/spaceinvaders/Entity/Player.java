@@ -19,7 +19,7 @@ public class Player extends Entity
 			}
 
 		@Override
-		public void Update()
+		public void update()
 			{
 
 				pos.add(direction);
