@@ -40,4 +40,7 @@ public class Assets
 		//not using textureatlas can't get it to work yet
 		public static Texture PLAYER= new Texture(Gdx.files.internal("playerShip1_green.png"));
 
+		public static Texture ENEMY= new Texture(Gdx.files.internal("enemyRed1.png"));
+
+
 	}
