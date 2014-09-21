@@ -24,6 +24,7 @@ public class EntityManager
 					{
 						e.update();
 					}
+				player.update();
 
 			}
 		public void render(SpriteBatch sb)
@@ -31,8 +32,9 @@ public class EntityManager
 				for (Entity e : entities)
 					{
 						e.render(sb);
-					}
 
+					}
+				player.render(sb);
 			}
 		public void AddEntity(Entity entity)
 			{
