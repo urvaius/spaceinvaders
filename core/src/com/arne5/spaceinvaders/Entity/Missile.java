@@ -2,11 +2,10 @@ package com.arne5.spaceinvaders.Entity;
 
 import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.SpaceInvaders;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Created by urvaius on 9/21/14.
+ * Created by urvaius on 11/12/14.
  */
 public class Missile extends Entity
 	{
@@ -25,6 +24,6 @@ public class Missile extends Entity
 		public boolean checkEnd()
 			{
 				return pos.y >= SpaceInvaders.HEIGHT;
-				
+
 			}
-	}
+}

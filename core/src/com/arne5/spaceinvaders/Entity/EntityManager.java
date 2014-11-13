@@ -20,8 +20,12 @@ public class EntityManager
 		private final Player player;
 
 
-		public EntityManager(int amount,OrthoCamera camera)
+
+		public EntityManager(int amount, OrthoCamera camera)
 			{   player = new Player(new Vector2(230,15),new Vector2(0,0),this,camera);
+
+
+
 				for(int i=0;i <amount;i++)
 				{
 					float x = MathUtils.random(0, SpaceInvaders.WIDTH- Assets.ENEMY.getWidth());
@@ -58,6 +62,8 @@ public class EntityManager
 
 					}
 				player.render(sb);
+
+
 			}
 
 		private void checkCollisions()

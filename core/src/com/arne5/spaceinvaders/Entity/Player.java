@@ -5,18 +5,12 @@ import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
-import static com.badlogic.gdx.Input.*;
-
 /**
- * Created by urvaius on 9/2/14.
+ * Created by urvaius on 11/12/14.
  */
 public class Player extends Entity
-
-
-
 	{
 		private final EntityManager entityManager;
 		private final OrthoCamera camera;
@@ -53,13 +47,13 @@ public class Player extends Entity
 					}
 
 
-				if(Gdx.input.isKeyPressed(Keys.A)|| dir==1)
+				if(Gdx.input.isKeyPressed(Input.Keys.A)|| dir==1)
 					{
 						setDirection(-300,0);
 
 
 					}
-				else if(Gdx.input.isKeyPressed(Keys.D)|| dir==2)
+				else if(Gdx.input.isKeyPressed(Input.Keys.D)|| dir==2)
 					{
 						setDirection(300,0);
 					}
@@ -67,16 +61,21 @@ public class Player extends Entity
 					{
 						setDirection(0,0);
 					}
-				if (Gdx.input.isKeyPressed(Keys.SPACE))
+
+
+				if (Gdx.input.isKeyPressed(Input.Keys.SPACE))
 					{
 						if(System.currentTimeMillis()-lastFire>=250)
 							{
-								entityManager.AddEntity(new Missile(pos.cpy().add(Assets.PLAYER.getWidth()/2,Assets.PLAYER.getHeight())));
-								lastFire=System.currentTimeMillis();
+								entityManager.AddEntity(new Missile(pos.cpy().add(Assets.PLAYER.getWidth() / 2, Assets.PLAYER.getHeight())));
+
+									lastFire=System.currentTimeMillis();
 							}
+
 
 					}
 			}
 
 
 	}
+

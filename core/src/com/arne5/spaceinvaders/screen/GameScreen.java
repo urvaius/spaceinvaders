@@ -2,13 +2,14 @@ package com.arne5.spaceinvaders.screen;
 
 import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.Entity.EntityManager;
-import com.arne5.spaceinvaders.Entity.Player;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 
-
+/**
+ * Created by urvaius on 11/12/14.
+ */
 public class GameScreen extends Screen
+
 	{
 		private OrthoCamera camera;
 
@@ -16,9 +17,11 @@ public class GameScreen extends Screen
 		@Override
 		public void create()
 
-			{   Assets.Load();
+			{
+				Assets.Load();
 				camera = new OrthoCamera();
 
+				//entityManager = new EntityManager(10,camera);
 				entityManager = new EntityManager(10,camera);
 
 			}

@@ -2,36 +2,38 @@ package com.arne5.spaceinvaders.Entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Created by urvaius on 9/2/14.
+ * Created by urvaius on 11/12/14.
  */
 public abstract class Entity
 	{
 
-		protected  Texture texture;
+		//protected Texture texture;
 		protected Sprite sprite;
 		protected Vector2 pos,direction;
 
 
-		public Entity(Texture texture, Vector2 pos, Vector2 direction)
-		//public Entity(Sprite sprite,Vector2 pos, Vector2 direction)
-			{
+		public Entity(Sprite sprite, Vector2 pos, Vector2 direction)
 
-				this.texture= texture;
-				//this.sprite = sprite;
-				//sprite.setX(pos.x);
-				//sprite.setY(pos.y);
+		{
 
-				this.pos= pos;
-				this.direction =direction;
+			//this.texture= texture;
+			this.sprite = sprite;
 
-			}
+			sprite.setX(pos.x);
+			sprite.setY(pos.y);
+
+
+
+			this.pos= pos;
+			this.direction =direction;
+
+		}
 
 		public Vector2 getPosition()
 			{
@@ -46,8 +48,9 @@ public abstract class Entity
 
 			{
 				//for texture way
-				sb.draw(texture,pos.x,pos.y);
+				//sb.draw(texture,pos.x,pos.y);
 				//for sprite way?
+				sb.draw(sprite,pos.x,pos.y);
 				//sprite.draw(sb);
 
 
@@ -55,8 +58,8 @@ public abstract class Entity
 			}
 		public Rectangle getBounds()
 			{
-				return new Rectangle(pos.x,pos.y-texture.getHeight(),texture.getWidth(),texture.getHeight());
-
+				//return new Rectangle(pos.x,pos.y-texture.getHeight(),texture.getWidth(),texture.getHeight());
+				return new Rectangle(pos.x,pos.y-sprite.getHeight(),sprite.getWidth(),sprite.getHeight());
 
 			}
 
