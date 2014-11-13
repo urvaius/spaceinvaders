@@ -7,6 +7,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 
+import java.rmi.server.ServerNotActiveException;
+
 /**
  * Created by urvaius on 11/12/14.
  */
@@ -21,6 +23,7 @@ public class Player extends Entity
 				super(Assets.PLAYER, pos, direction);
 				this.entityManager= entityManager;
 				this.camera = camera;
+
 			}
 
 		@Override
@@ -28,6 +31,8 @@ public class Player extends Entity
 			{
 
 				pos.add(direction);
+
+
 
 				// movement
 
@@ -61,6 +66,20 @@ public class Player extends Entity
 					{
 						setDirection(0,0);
 					}
+
+				//add to not go past screen
+
+				if (pos.x >= SpaceInvaders.WIDTH - Assets.PLAYER.getWidth()/2 )
+					{
+						pos.x = SpaceInvaders.WIDTH - Assets.PLAYER.getWidth()/2;
+					}
+
+				if (pos.x <= 0 )
+					{
+						pos.x = 0 ;
+					}
+
+
 
 
 				if (Gdx.input.isKeyPressed(Input.Keys.SPACE))
