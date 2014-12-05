@@ -81,7 +81,6 @@ public class Player extends Entity
 
 
 
-
 				if (Gdx.input.isKeyPressed(Input.Keys.SPACE))
 					{
 						if(System.currentTimeMillis()-lastFire>=250)
