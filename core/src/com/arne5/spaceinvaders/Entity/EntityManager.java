@@ -28,6 +28,7 @@ public class EntityManager
 
 
 
+
 				for(int i=0;i <amount;i++)
 				{
 					float x = MathUtils.random(0, SpaceInvaders.WIDTH- Assets.ENEMY.getWidth());

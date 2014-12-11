@@ -31,6 +31,7 @@ public class Assets
 
 
 				PLAYER = atlas.createSprite("playerShip1_green");
+
 				ENEMY = atlas.createSprite("enemyBlue1");
 				MISSILE= atlas.createSprite("laserGreen05");
 				//PLAYER_TEXTURE= PLAYER.
