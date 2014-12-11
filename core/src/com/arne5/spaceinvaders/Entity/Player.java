@@ -69,16 +69,15 @@ public class Player extends Entity
 
 				//add to not go past screen
 
-				if (pos.x >= SpaceInvaders.WIDTH - Assets.PLAYER.getWidth()/2 )
+				if (pos.x >= SpaceInvaders.WIDTH - Assets.PLAYER.getWidth() )
 					{
-						pos.x = SpaceInvaders.WIDTH - Assets.PLAYER.getWidth()/2;
+						pos.x = SpaceInvaders.WIDTH - Assets.PLAYER.getWidth();
 					}
 
 				if (pos.x <= 0 )
 					{
 						pos.x = 0 ;
 					}
-
 
 
 
