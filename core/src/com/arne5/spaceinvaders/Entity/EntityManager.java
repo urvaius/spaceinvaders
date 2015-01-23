@@ -96,6 +96,7 @@ public class EntityManager
 							{
 								//make lose life instead
 								ScreenManager.setScreen(new GameOverScreen(false));
+
 								//ScreenManager.setScreen(new GameStartScreen());
 
 							}

@@ -23,6 +23,8 @@ public class Assets
 		public static Sprite shootButton;
 		public static Sprite startScreen;
 		public static Sprite gameBack;
+		public static Sprite gameWon;
+		public static Sprite gameOver;
 		//public static Sprite PLAYER_SPRITE;
 		//public static Texture PLAYER_TEXTURE;
 
@@ -39,6 +41,9 @@ public class Assets
 				ENEMY = atlas.createSprite("enemyBlue1");
 				MISSILE= atlas.createSprite("laserGreen05");
 				gameBack = atlas.createSprite("PrimaryStar480");
+
+				gameWon = atlas.createSprite("gamewon");
+				gameOver = atlas.createSprite("gameover");
 				//PLAYER_TEXTURE= PLAYER.
 				//get texture from sprite atlas
 				//PLAYER_SPRITE= atlas.createSprite("playerShip1_green");
@@ -56,6 +61,8 @@ public class Assets
 
 		//public static Texture ENEMY= new Texture(Gdx.files.internal("enemyRed1.png"));
 		//public static Texture MISSILE = new Texture(Gdx.files.internal("laserGreen05.png"));
-		public static Texture GAME_WON = new Texture(Gdx.files.internal("gamewon.png"));
-		public static Texture GAME_OVER = new Texture(Gdx.files.internal("gameover.png"));
+
+		//try to cut these out now
+		//public static Texture GAME_WON = new Texture(Gdx.files.internal("gamewon.png"));
+		//public static Texture GAME_OVER = new Texture(Gdx.files.internal("gameover.png"));
 	}

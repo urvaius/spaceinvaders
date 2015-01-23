@@ -4,6 +4,7 @@ import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
@@ -12,17 +13,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GameOverScreen extends Screen
 	{
 		private OrthoCamera camera;
-		private Texture texture;
+		private Sprite sprite;
 
 		public GameOverScreen(boolean won)
 			{
 				if(won)
 					{
-						texture = Assets.GAME_WON;
+						sprite = Assets.gameWon;
 					}
 				else
 					{
-						texture = Assets.GAME_OVER;
+						sprite = Assets.gameOver;
 					}
 			}
 
@@ -47,7 +48,7 @@ public class GameOverScreen extends Screen
 				sb.setProjectionMatrix(camera.combined);
 				sb.begin();
 
-				sb.draw(texture, SpaceInvaders.WIDTH/2-texture.getWidth()/2,SpaceInvaders.HEIGHT/2 -texture.getHeight()/2);
+				sb.draw(sprite, SpaceInvaders.WIDTH/2-sprite.getWidth()/2,SpaceInvaders.HEIGHT/2 -sprite.getHeight()/2);
 				sb.end();
 			}
 
