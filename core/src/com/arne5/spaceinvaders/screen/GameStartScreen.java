@@ -8,6 +8,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 
 /**
  * Created by darneson on 1/23/2015.
@@ -35,6 +36,16 @@ public class GameStartScreen extends Screen
 		public void update()
 			{
 				camera.update();
+
+				if(Gdx.input.isTouched())
+					{
+						Vector2 touch= camera.unprojectCoordinates(Gdx.input.getX(),Gdx.input.getY());
+						if(touch.x >0 )
+							{
+								ScreenManager.setScreen(new GameScreen());
+							}
+
+					}
 
 				if(Gdx.input.isKeyPressed(Input.Keys.ENTER))
 					{
