@@ -20,6 +20,7 @@ public class Assets
 		public static Sprite PLAYER;
 		public static Sprite ENEMY;
 		public static Sprite MISSILE;
+		public static Sprite shootButton;
 		//public static Sprite PLAYER_SPRITE;
 		//public static Texture PLAYER_TEXTURE;
 
@@ -31,6 +32,7 @@ public class Assets
 
 
 				PLAYER = atlas.createSprite("playerShip1_green");
+				shootButton = atlas.createSprite("powerupBlue");
 
 				ENEMY = atlas.createSprite("enemyBlue1");
 				MISSILE= atlas.createSprite("laserGreen05");

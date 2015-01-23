@@ -3,6 +3,7 @@ package com.arne5.spaceinvaders.screen;
 import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.Entity.EntityManager;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
@@ -14,6 +15,10 @@ public class GameScreen extends Screen
 		private OrthoCamera camera;
 
 		private EntityManager entityManager;
+
+
+
+
 		@Override
 		public void create()
 
@@ -41,7 +46,7 @@ public class GameScreen extends Screen
 				sb.setProjectionMatrix(camera.combined);
 				sb.begin();
 
-
+				sb.draw(Assets.shootButton,0,0);
 				entityManager.render(sb);
 
 

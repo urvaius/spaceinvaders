@@ -33,17 +33,21 @@ public class Player extends Entity
 				pos.add(direction);
 
 
-
+				// shoot button?
 				// movement
 
 				int dir = 0;
 				if(Gdx.input.isTouched())
 					{
 						Vector2 touch= camera.unprojectCoordinates(Gdx.input.getX(),Gdx.input.getY());
-						if(touch.x > SpaceInvaders.WIDTH/2)
+						if(touch.x > SpaceInvaders.WIDTH/2 )
 							{
 								dir=2;
 
+							}
+						else if(touch.x < 0 + Assets.shootButton.getWidth() && touch.y < 0 + Assets.shootButton.getHeight())
+							{
+								dir =0;
 							}
 						else
 							{
@@ -92,6 +96,28 @@ public class Player extends Entity
 
 
 					}
+
+				// add if shootbutton pressed as well
+				if(Gdx.input.isTouched())
+					{
+						Vector2 touchButton= camera.unprojectCoordinates(Gdx.input.getX(),Gdx.input.getY());
+						Vector2 touchFire = new Vector2(Assets.shootButton.getX(),Assets.shootButton.getY());
+						if(touchButton.x < touchFire.x +Assets.shootButton.getWidth() && touchButton.y < touchFire.y + Assets.shootButton.getHeight())
+							{
+
+								if(System.currentTimeMillis()-lastFire>=250)
+									{
+										entityManager.AddEntity(new Missile(pos.cpy().add(Assets.PLAYER.getWidth() / 2, Assets.PLAYER.getHeight())));
+
+										lastFire=System.currentTimeMillis();
+									}
+
+							}
+
+					}
+
+
+
 			}
 
 

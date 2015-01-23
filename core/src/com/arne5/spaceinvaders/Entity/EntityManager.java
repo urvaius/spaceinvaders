@@ -21,6 +21,7 @@ public class EntityManager
 
 
 
+
 		public EntityManager(int amount, OrthoCamera camera)
 			{   player = new Player(new Vector2(230,15),new Vector2(0,0),this,camera);
 
@@ -65,6 +66,7 @@ public class EntityManager
 
 					}
 				player.render(sb);
+
 
 
 			}
