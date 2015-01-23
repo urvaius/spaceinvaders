@@ -46,7 +46,7 @@ public class GameScreen extends Screen
 				sb.setProjectionMatrix(camera.combined);
 				sb.begin();
 
-				
+
 				sb.draw(Assets.gameBack,0,0);
 				sb.draw(Assets.shootButton,0,0);
 				entityManager.render(sb);
