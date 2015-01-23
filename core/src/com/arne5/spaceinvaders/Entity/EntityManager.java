@@ -4,6 +4,7 @@ import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.arne5.spaceinvaders.screen.GameOverScreen;
+import com.arne5.spaceinvaders.screen.GameScreen;
 import com.arne5.spaceinvaders.screen.ScreenManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -94,6 +95,8 @@ public class EntityManager
 							{
 								//make lose life instead
 								ScreenManager.setScreen(new GameOverScreen(false));
+								//ScreenManager.setScreen(new GameScreen());
+
 							}
 					}
 

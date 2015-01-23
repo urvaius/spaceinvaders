@@ -21,6 +21,8 @@ public class Assets
 		public static Sprite ENEMY;
 		public static Sprite MISSILE;
 		public static Sprite shootButton;
+		public static Sprite startScreen;
+		public static Sprite gameBack;
 		//public static Sprite PLAYER_SPRITE;
 		//public static Texture PLAYER_TEXTURE;
 
@@ -33,9 +35,10 @@ public class Assets
 
 				PLAYER = atlas.createSprite("playerShip1_green");
 				shootButton = atlas.createSprite("powerupBlue");
-
+				startScreen = atlas.createSprite("startscreen");
 				ENEMY = atlas.createSprite("enemyBlue1");
 				MISSILE= atlas.createSprite("laserGreen05");
+				gameBack = atlas.createSprite("PrimaryStar480");
 				//PLAYER_TEXTURE= PLAYER.
 				//get texture from sprite atlas
 				//PLAYER_SPRITE= atlas.createSprite("playerShip1_green");

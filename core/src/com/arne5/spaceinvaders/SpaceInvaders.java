@@ -2,6 +2,7 @@ package com.arne5.spaceinvaders;
 
 import com.arne5.spaceinvaders.screen.GameScreen;
 import com.arne5.spaceinvaders.screen.GameScreen;
+import com.arne5.spaceinvaders.screen.GameStartScreen;
 import com.arne5.spaceinvaders.screen.ScreenManager;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -21,7 +22,9 @@ public class SpaceInvaders extends ApplicationAdapter
 			batch = new SpriteBatch();
 			//ScreenManager.setScreen(new GameScreen());
 			//try new game with using atlas
+
 			ScreenManager.setScreen(new GameScreen());
+			//ScreenManager.setScreen(new GameStartScreen());
 
 		}
 	@Override
