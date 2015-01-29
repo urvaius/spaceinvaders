@@ -95,6 +95,7 @@ public class EntityManager
 						if (e.getBounds().overlaps(player.getBounds()))
 							{
 								//make lose life instead
+
 								ScreenManager.setScreen(new GameOverScreen(false));
 
 								//ScreenManager.setScreen(new GameStartScreen());

@@ -25,6 +25,7 @@ public class Assets
 		public static Sprite gameBack;
 		public static Sprite gameWon;
 		public static Sprite gameOver;
+		//public static Sprite paused;
 		//public static Sprite PLAYER_SPRITE;
 		//public static Texture PLAYER_TEXTURE;
 
@@ -44,6 +45,7 @@ public class Assets
 
 				gameWon = atlas.createSprite("gamewon");
 				gameOver = atlas.createSprite("gameover");
+				//paused = atlas.createSprite("paused");
 				//PLAYER_TEXTURE= PLAYER.
 				//get texture from sprite atlas
 				//PLAYER_SPRITE= atlas.createSprite("playerShip1_green");

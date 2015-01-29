@@ -23,8 +23,10 @@ public class SpaceInvaders extends ApplicationAdapter
 			//ScreenManager.setScreen(new GameScreen());
 			//try new game with using atlas
 
-			ScreenManager.setScreen(new GameScreen());
+
 			//ScreenManager.setScreen(new GameStartScreen());
+			ScreenManager.setScreen(new GameScreen());
+
 
 		}
 	@Override

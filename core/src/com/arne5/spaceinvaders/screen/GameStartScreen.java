@@ -27,9 +27,10 @@ public class GameStartScreen extends Screen
 		@Override
 		public void create()
 			{
-				camera= new OrthoCamera();
-				camera.resize();
 				Assets.Load();
+				camera = new OrthoCamera();
+				camera.resize();
+
 			}
 
 		@Override
@@ -52,12 +53,14 @@ public class GameStartScreen extends Screen
 
 
 						ScreenManager.setScreen(new GameScreen());
-
+						//create();
 						//ScreenManager.setScreen(new GameStartScreen());
 
 
 
 					}
+
+
 
 
 			}

@@ -3,6 +3,8 @@ package com.arne5.spaceinvaders.screen;
 import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.Entity.EntityManager;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -23,6 +25,7 @@ public class GameScreen extends Screen
 		public void create()
 
 			{
+				//maybe do not need here.
 				Assets.Load();
 				camera = new OrthoCamera();
 
@@ -36,6 +39,21 @@ public class GameScreen extends Screen
 			{
 				camera.update();
 				entityManager.update();
+
+
+
+
+				/*if(Gdx.input.isKeyPressed(Input.Keys.P))
+					{
+
+						//set pause screen.
+						pause();
+
+					}
+				if(Gdx.input.isKeyPressed(Input.Keys.O))
+					{
+						resume();
+					}*/
 
 			}
 
