@@ -91,13 +91,12 @@ public class Player extends Entity
 							{
 								entityManager.AddEntity(new Missile(pos.cpy().add(Assets.PLAYER.getWidth() / 2, Assets.PLAYER.getHeight())));
 								Assets.laser.play();
-
-									lastFire=System.currentTimeMillis();
+								lastFire=System.currentTimeMillis();
 							}
 
 
 					}
-
+					// TODO: combine these two for space and touched.
 				// add if shootbutton pressed as well
 				if(Gdx.input.isTouched())
 					{
@@ -109,7 +108,7 @@ public class Player extends Entity
 								if(System.currentTimeMillis()-lastFire>=250)
 									{
 										entityManager.AddEntity(new Missile(pos.cpy().add(Assets.PLAYER.getWidth() / 2, Assets.PLAYER.getHeight())));
-
+										Assets.laser.play();
 										lastFire=System.currentTimeMillis();
 									}
 
