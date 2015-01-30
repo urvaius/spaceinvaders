@@ -96,6 +96,10 @@ public class Player extends Entity
 
 
 					}
+
+
+
+
 					// TODO: combine these two for space and touched.
 				// add if shootbutton pressed as well
 				if(Gdx.input.isTouched())
