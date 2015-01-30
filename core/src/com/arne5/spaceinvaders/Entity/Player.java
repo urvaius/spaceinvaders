@@ -90,6 +90,7 @@ public class Player extends Entity
 						if(System.currentTimeMillis()-lastFire>=250)
 							{
 								entityManager.AddEntity(new Missile(pos.cpy().add(Assets.PLAYER.getWidth() / 2, Assets.PLAYER.getHeight())));
+								Assets.laser.play();
 
 									lastFire=System.currentTimeMillis();
 							}

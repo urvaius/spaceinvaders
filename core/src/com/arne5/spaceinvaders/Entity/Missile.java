@@ -19,6 +19,7 @@ public class Missile extends Entity
 			{
 				pos.add(direction);
 
+
 			}
 
 		public boolean checkEnd()

@@ -1,5 +1,7 @@
 package com.arne5.spaceinvaders;
 
+import com.badlogic.gdx.Audio;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -19,12 +21,14 @@ public class Assets
 		public static TextureAtlas atlas;
 		public static Sprite PLAYER;
 		public static Sprite ENEMY;
+
 		public static Sprite MISSILE;
 		public static Sprite shootButton;
 		public static Sprite startScreen;
 		public static Sprite gameBack;
 		public static Sprite gameWon;
 		public static Sprite gameOver;
+		public static Sound laser;
 		//public static Sprite paused;
 		//public static Sprite PLAYER_SPRITE;
 		//public static Texture PLAYER_TEXTURE;
@@ -45,6 +49,10 @@ public class Assets
 
 				gameWon = atlas.createSprite("gamewon");
 				gameOver = atlas.createSprite("gameover");
+
+				//sounds  TODO: should create a audio manager for this would not be hard.
+				laser = Gdx.audio.newSound(Gdx.files.internal("laser1.wav"));
+
 				//paused = atlas.createSprite("paused");
 				//PLAYER_TEXTURE= PLAYER.
 				//get texture from sprite atlas
