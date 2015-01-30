@@ -26,9 +26,9 @@ public class GameScreen extends Screen
 
 			{
 				//maybe do not need here.
-				Assets.Load();
+				//Assets.Load();
 				camera = new OrthoCamera();
-
+				camera.resize();
 				//entityManager = new EntityManager(10,camera);
 				entityManager = new EntityManager(10,camera);
 
