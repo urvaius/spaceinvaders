@@ -31,6 +31,8 @@ public class GameScreen extends Screen
 				camera.resize();
 				//entityManager = new EntityManager(10,camera);
 				entityManager = new EntityManager(10,camera);
+				Assets.gameMusic.isLooping();
+				Assets.gameMusic.play();
 
 			}
 
@@ -82,18 +84,18 @@ public class GameScreen extends Screen
 		@Override
 		public void dispose()
 			{
-
+				Assets.gameMusic.dispose();
 			}
 
 		@Override
 		public void pause()
 			{
-
+				Assets.gameMusic.pause();
 			}
 
 		@Override
 		public void resume()
 			{
-
+				Assets.gameMusic.play();
 			}
 	}
