@@ -28,6 +28,7 @@ public class GameStartScreen extends Screen
 		public void create()
 			{
 				Assets.Load();
+
 				camera = new OrthoCamera();
 				camera.resize();
 
@@ -69,6 +70,7 @@ public class GameStartScreen extends Screen
 		public void render(SpriteBatch sb)
 			{
 				//todo this may be wrond for the draw
+
 				sb.setProjectionMatrix(camera.combined);
 				sb.begin();
 

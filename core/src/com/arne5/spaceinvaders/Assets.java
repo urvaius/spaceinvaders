@@ -44,10 +44,11 @@ public class Assets
 
 				PLAYER = atlas.createSprite("playerShip1_green");
 				shootButton = atlas.createSprite("powerupBlue");
-				startScreen = atlas.createSprite("startscreen");
+				startScreen = atlas.createSprite("startscreen2");
 				ENEMY = atlas.createSprite("enemyBlue1");
 				MISSILE= atlas.createSprite("laserGreen05");
-				gameBack = atlas.createSprite("PrimaryStar480");
+				gameBack = atlas.createSprite("PrimaryStar520");
+
 
 				gameWon = atlas.createSprite("gamewon");
 				gameOver = atlas.createSprite("gameover");

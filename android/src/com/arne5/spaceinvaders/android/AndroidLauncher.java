@@ -13,5 +13,6 @@ public class AndroidLauncher extends AndroidApplication {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 
 		initialize(new SpaceInvaders(), config);
+
 	}
 }
