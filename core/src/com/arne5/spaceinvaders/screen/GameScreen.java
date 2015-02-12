@@ -1,10 +1,15 @@
 package com.arne5.spaceinvaders.screen;
 
 import com.arne5.spaceinvaders.Assets;
+
 import com.arne5.spaceinvaders.Entity.EntityManager;
+import com.arne5.spaceinvaders.Entity.Player;
+import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -17,6 +22,9 @@ public class GameScreen extends Screen
 		private OrthoCamera camera;
 
 		private EntityManager entityManager;
+		private BitmapFont scoreFont;
+
+
 
 
 
@@ -33,6 +41,13 @@ public class GameScreen extends Screen
 				entityManager = new EntityManager(10,camera);
 				Assets.gameMusic.isLooping();
 				Assets.gameMusic.play();
+				scoreFont = new BitmapFont();
+				scoreFont.setColor(Color.WHITE);
+
+
+
+
+
 
 			}
 
@@ -69,6 +84,8 @@ public class GameScreen extends Screen
 
 				sb.draw(Assets.gameBack,0,0);
 				sb.draw(Assets.shootButton,0,0);
+				scoreFont.draw(sb,"Score" , SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
+
 				entityManager.render(sb);
 
 
@@ -85,6 +102,8 @@ public class GameScreen extends Screen
 		public void dispose()
 			{
 				Assets.gameMusic.dispose();
+				scoreFont.dispose();
+
 			}
 
 		@Override

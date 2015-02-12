@@ -17,12 +17,25 @@ public class Player extends Entity
 		private final EntityManager entityManager;
 		private final OrthoCamera camera;
 		private long lastFire;
+		public int score;
+		public int getScore()
+			{
+				return score;
+			}
+
+		public void setScore(int score)
+			{
+				this.score = score;
+			}
 
 		public Player(Vector2 pos, Vector2 direction,EntityManager entityManager,OrthoCamera camera)
 			{
 				super(Assets.PLAYER, pos, direction);
 				this.entityManager= entityManager;
 				this.camera = camera;
+				this.score = 0;
+
+
 
 			}
 
