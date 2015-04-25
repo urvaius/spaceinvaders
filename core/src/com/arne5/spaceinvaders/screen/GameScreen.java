@@ -84,7 +84,7 @@ public class GameScreen extends Screen
 
 				sb.draw(Assets.gameBack,0,0);
 				sb.draw(Assets.shootButton,0,0);
-				scoreFont.draw(sb,"Score" , SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
+				scoreFont.draw(sb,"SCORE " + entityManager.playerScore, SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
 
 				entityManager.render(sb);
 

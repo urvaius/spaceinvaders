@@ -20,13 +20,14 @@ public class EntityManager
 	{
 		private final Array<Entity> entities = new Array<Entity>();
 		private final Player player;
+		public int playerScore;
 
 
 
 
 		public EntityManager(int amount, OrthoCamera camera)
 			{   player = new Player(new Vector2(230,15),new Vector2(0,0),this,camera);
-				player.setScore(1);
+				player.setScore(0);
 
 
 
@@ -56,6 +57,7 @@ public class EntityManager
 					}
 				player.update();
 				checkCollisions();
+				playerScore = player.getScore();
 
 			}
 		public void render(SpriteBatch sb)
