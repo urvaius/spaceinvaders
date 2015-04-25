@@ -17,7 +17,7 @@ public class Player extends Entity
 		private final EntityManager entityManager;
 		private final OrthoCamera camera;
 		private long lastFire;
-		public int score;
+		private int score;
 		public int getScore()
 			{
 				return score;
