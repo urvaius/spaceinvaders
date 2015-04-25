@@ -26,7 +26,8 @@ public class EntityManager
 
 		public EntityManager(int amount, OrthoCamera camera)
 			{   player = new Player(new Vector2(230,15),new Vector2(0,0),this,camera);
-				//player.setScore(0);
+				player.setScore(1);
+
 
 
 				for(int i=0;i <amount;i++)
@@ -80,7 +81,7 @@ public class EntityManager
 									{
 										entities.removeValue(e,false);
 										entities.removeValue(m,false);
-										//player.setScore(10);
+										player.setScore(player.getScore()+5);
 										if(gameOver())
 											{
 												//if won
