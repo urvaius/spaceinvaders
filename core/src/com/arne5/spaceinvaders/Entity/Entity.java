@@ -59,7 +59,7 @@ public abstract class Entity
 		public Rectangle getBounds()
 			{
 				//return new Rectangle(pos.x,pos.y-texture.getHeight(),texture.getWidth(),texture.getHeight());
-				return new Rectangle(pos.x,pos.y-sprite.getHeight(),sprite.getWidth(),sprite.getHeight());
+				return new Rectangle(pos.x ,pos.y-sprite.getHeight() *.2f,sprite.getWidth()*0.8f ,sprite.getHeight()*0.8f);
 
 			}
 
