@@ -3,10 +3,7 @@ package com.arne5.spaceinvaders.Entity;
 import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
-import com.arne5.spaceinvaders.screen.GameOverScreen;
-import com.arne5.spaceinvaders.screen.GameScreen;
-import com.arne5.spaceinvaders.screen.GameStartScreen;
-import com.arne5.spaceinvaders.screen.ScreenManager;
+import com.arne5.spaceinvaders.screen.*;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -40,6 +37,16 @@ public class EntityManager
 					AddEntity(new Enemy(new Vector2(x,y),new Vector2(0,-speed),Assets.ENEMY.getWidth(),Assets.ENEMY.getHeight()));
 
 				}
+
+				for(int i=0;i <amount;i++)
+					{
+						float x = MathUtils.random(0,SpaceInvaders.WIDTH-Assets.greenEnemy.getWidth());
+						float y = MathUtils.random(SpaceInvaders.HEIGHT,SpaceInvaders.HEIGHT*3);
+						float speed = MathUtils.random(2,5);
+						AddEntity(new GreenEnemy(new Vector2(x,y),new Vector2(0,-speed),Assets.greenEnemy.getWidth(),Assets.greenEnemy.getHeight()));
+
+					}
+
 
 
 
@@ -79,6 +86,37 @@ public class EntityManager
 
 		private void checkCollisions()
 			{
+
+				//green enemy collision
+				//TODO:  need to fix this so I don't have to keep adding collision for different entities.
+
+						//maybe make an offshoot of enemy class with a different picture only
+				for(GreenEnemy e:getGreenEnemies())
+					{
+						for(Missile m:getMissiles())
+							{
+								if(e.getBounds().overlaps(m.getBounds()))
+									{
+										entities.removeValue(e,false);
+										entities.removeValue(m,false);
+										player.setScore(player.getScore()+10);
+										if(gameOver())
+											{
+
+												//if won
+												ScreenManager.setScreen(new GameOverScreen(true));
+											}
+
+									}
+
+							}
+						if (e.getBounds().overlaps((player.getBounds())))
+							{
+								ScreenManager.setScreen((new GameOverScreen(false)));
+							}
+					}
+
+
 				for(Enemy e:getEnemies())
 					{
 						for(Missile m:getMissiles())
@@ -87,7 +125,7 @@ public class EntityManager
 									{
 										entities.removeValue(e,false);
 										entities.removeValue(m,false);
-										player.setScore(player.getScore()+5);
+										player.setScore(player.getScore() + 5);
 										if(gameOver())
 											{
 												//if won
@@ -116,9 +154,9 @@ public class EntityManager
 				entities.add(entity);
 			}
 
-		/*private Array<GreenEnemy> getGreenEnemies()
+		private Array<GreenEnemy> getGreenEnemies()
 			{
-				Array<GreenEnemy> ret = new Array<~>();
+				Array<GreenEnemy> ret = new Array<GreenEnemy>();
 				for(Entity e : entities)
 					{
 						if(e instanceof GreenEnemy)
@@ -127,7 +165,7 @@ public class EntityManager
 							}
 					}
 				return ret;
-			}*/
+			}
 
 		private Array<Enemy> getEnemies()
 			{
@@ -138,6 +176,8 @@ public class EntityManager
 							{
 								ret.add((Enemy)e);
 							}
+
+
 					}
 				return ret;
 			}
@@ -157,8 +197,14 @@ public class EntityManager
 			}
 		public boolean gameOver()
 			{
-				return getEnemies().size <=0;
-				//return getGreenEnemies().size <=0;
+
+
+				return getGreenEnemies().size <=0;
+
+
+
+
+
 
 			}
 
