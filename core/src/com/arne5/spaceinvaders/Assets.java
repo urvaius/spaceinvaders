@@ -23,6 +23,7 @@ public class Assets
 		public static Sprite PLAYER;
 		public static Sprite ENEMY;
 		public static Sprite greenEnemy;
+		public static Sprite blackEnemy;
 		public static Sprite MISSILE;
 		public static Sprite shootButton;
 		public static Sprite startScreen;
@@ -56,6 +57,9 @@ public class Assets
 
 				greenEnemy = atlas.createSprite("enemyGreen2");
 				greenEnemy.setSize(greenEnemy.getWidth()/2,greenEnemy.getHeight()/2);
+
+				blackEnemy = atlas.createSprite(("enemyBlack4"));
+				blackEnemy.setSize(blackEnemy.getWidth()/2,blackEnemy.getHeight()/2);
 
 
 				MISSILE= atlas.createSprite("laserGreen05");
