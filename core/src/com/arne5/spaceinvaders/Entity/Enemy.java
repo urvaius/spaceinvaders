@@ -13,14 +13,13 @@ public class Enemy extends Entity
 	{
 
 
-		protected Float width,height;
+
 		public Enemy( Vector2 pos, Vector2 direction,Float width,Float height)
 			{
 
 				super(Assets.ENEMY, pos, direction,width,height);
 
-				this.width = Assets.ENEMY.getWidth();
-				this.height = Assets.ENEMY.getHeight();
+
 
 
 			}

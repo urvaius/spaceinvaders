@@ -22,7 +22,7 @@ public class Assets
 		public static TextureAtlas atlas;
 		public static Sprite PLAYER;
 		public static Sprite ENEMY;
-
+		public static Sprite greenEnemy;
 		public static Sprite MISSILE;
 		public static Sprite shootButton;
 		public static Sprite startScreen;
@@ -53,8 +53,13 @@ public class Assets
 
 				ENEMY = atlas.createSprite("enemyBlue1");
 				ENEMY.setSize(ENEMY.getWidth()/2,ENEMY.getHeight()/2);
+
+				greenEnemy = atlas.createSprite("enemyGreen2");
+				greenEnemy.setSize(greenEnemy.getWidth()/2,greenEnemy.getHeight()/2);
+
+
 				MISSILE= atlas.createSprite("laserGreen05");
-								MISSILE.setSize(MISSILE.getWidth()/2,MISSILE.getHeight()/2);
+				MISSILE.setSize(MISSILE.getWidth()/2,MISSILE.getHeight()/2);
 				gameBack = atlas.createSprite("PrimaryStar520");
 
 

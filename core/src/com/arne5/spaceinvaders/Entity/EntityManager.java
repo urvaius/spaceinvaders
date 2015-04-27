@@ -41,6 +41,9 @@ public class EntityManager
 
 				}
 
+
+
+
 			}
 
 		public void update()
@@ -113,6 +116,19 @@ public class EntityManager
 				entities.add(entity);
 			}
 
+		/*private Array<GreenEnemy> getGreenEnemies()
+			{
+				Array<GreenEnemy> ret = new Array<~>();
+				for(Entity e : entities)
+					{
+						if(e instanceof GreenEnemy)
+							{
+								ret.add((GreenEnemy)e);
+							}
+					}
+				return ret;
+			}*/
+
 		private Array<Enemy> getEnemies()
 			{
 				Array<Enemy> ret =new Array<Enemy>();
@@ -142,6 +158,7 @@ public class EntityManager
 		public boolean gameOver()
 			{
 				return getEnemies().size <=0;
+				//return getGreenEnemies().size <=0;
 
 			}
 
