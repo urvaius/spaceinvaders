@@ -16,14 +16,21 @@ public abstract class Entity
 		//protected Texture texture;
 		protected Sprite sprite;
 		protected Vector2 pos,direction;
+		protected float width;
+		protected float height;
 
 
-		public Entity(Sprite sprite, Vector2 pos, Vector2 direction)
+
+		public Entity(Sprite sprite, Vector2 pos, Vector2 direction,float width, float height)
 
 		{
 
 			//this.texture= texture;
 			this.sprite = sprite;
+			//trying to set sizes etc probably make a variable
+
+
+
 
 			sprite.setX(pos.x);
 			sprite.setY(pos.y);
@@ -32,6 +39,9 @@ public abstract class Entity
 
 			this.pos= pos;
 			this.direction =direction;
+			//trying to use size options
+			this.width = width;
+			this.height = height;
 
 		}
 
@@ -50,7 +60,9 @@ public abstract class Entity
 				//for texture way
 				//sb.draw(texture,pos.x,pos.y);
 				//for sprite way?
-				sb.draw(sprite,pos.x,pos.y);
+				//sb.draw(sprite,pos.x,pos.y,);
+				sb.draw(sprite,pos.x,pos.y,width,height);
+				//sprite.draw(sb);
 				//sprite.draw(sb);
 
 

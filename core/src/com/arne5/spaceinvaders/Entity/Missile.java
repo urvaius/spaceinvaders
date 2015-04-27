@@ -11,7 +11,7 @@ public class Missile extends Entity
 	{
 		public Missile( Vector2 pos)
 			{
-				super(Assets.MISSILE, pos, new Vector2(0,5));
+				super(Assets.MISSILE, pos, new Vector2(0,5),Assets.MISSILE.getWidth(),Assets.MISSILE.getHeight());
 			}
 
 		@Override

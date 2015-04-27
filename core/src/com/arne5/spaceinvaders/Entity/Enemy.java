@@ -11,10 +11,13 @@ import com.badlogic.gdx.math.Vector2;
 public class Enemy extends Entity
 	{
 
-		public Enemy( Vector2 pos, Vector2 direction)
+		public Enemy( Vector2 pos, Vector2 direction,Float width,Float height)
 			{
-				super(Assets.ENEMY, pos, direction);
+
+				super(Assets.ENEMY, pos, direction,width,height);
 			}
+
+
 
 		@Override
 		public void update()

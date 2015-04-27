@@ -26,7 +26,7 @@ public class EntityManager
 
 
 		public EntityManager(int amount, OrthoCamera camera)
-			{   player = new Player(new Vector2(230,15),new Vector2(0,0),this,camera);
+			{   player = new Player(new Vector2(230,15),new Vector2(0,0),Assets.PLAYER.getWidth(),Assets.PLAYER.getHeight(),this,camera);
 				player.setScore(0);
 
 
@@ -36,7 +36,8 @@ public class EntityManager
 					float x = MathUtils.random(0, SpaceInvaders.WIDTH- Assets.ENEMY.getWidth());
 					float y = MathUtils.random(SpaceInvaders.HEIGHT, SpaceInvaders.HEIGHT *3);
 					float speed = MathUtils.random(2,5);
-					AddEntity(new Enemy(new Vector2(x,y),new Vector2(0,-speed)));
+					//added height and widht as 1f and 1f need to try
+					AddEntity(new Enemy(new Vector2(x,y),new Vector2(0,-speed),Assets.ENEMY.getWidth(),Assets.ENEMY.getHeight()));
 
 				}
 

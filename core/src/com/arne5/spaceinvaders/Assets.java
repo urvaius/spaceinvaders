@@ -57,6 +57,8 @@ public class Assets
 				laser = Gdx.audio.newSound(Gdx.files.internal("laser1.wav"));
 				gameMusic= Gdx.audio.newMusic(Gdx.files.internal("gameMusic.mp3"));
 
+				//ENEMY.setSize(.1f,.1f);
+
 				//paused = atlas.createSprite("paused");
 				//PLAYER_TEXTURE= PLAYER.
 				//get texture from sprite atlas

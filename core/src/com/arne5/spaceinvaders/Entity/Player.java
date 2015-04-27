@@ -28,11 +28,12 @@ public class Player extends Entity
 				this.score = score;
 			}
 
-		public Player(Vector2 pos, Vector2 direction,EntityManager entityManager,OrthoCamera camera)
+		public Player(Vector2 pos, Vector2 direction,Float width,Float height, EntityManager entityManager,OrthoCamera camera)
 			{
-				super(Assets.PLAYER, pos, direction);
+				super(Assets.PLAYER, pos, direction,width,height);
 				this.entityManager= entityManager;
 				this.camera = camera;
+
 				this.score = 0;
 
 
