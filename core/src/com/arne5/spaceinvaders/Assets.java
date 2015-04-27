@@ -43,10 +43,18 @@ public class Assets
 
 
 				PLAYER = atlas.createSprite("playerShip1_green");
+
+
+				PLAYER.setSize(PLAYER.getWidth()/2,PLAYER.getHeight()/2);
+
+
 				shootButton = atlas.createSprite("powerupBlue");
 				startScreen = atlas.createSprite("startscreen2");
+
 				ENEMY = atlas.createSprite("enemyBlue1");
+				ENEMY.setSize(ENEMY.getWidth()/2,ENEMY.getHeight()/2);
 				MISSILE= atlas.createSprite("laserGreen05");
+								MISSILE.setSize(MISSILE.getWidth()/2,MISSILE.getHeight()/2);
 				gameBack = atlas.createSprite("PrimaryStar520");
 
 

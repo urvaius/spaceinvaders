@@ -18,6 +18,7 @@ public abstract class Entity
 		protected Vector2 pos,direction;
 		protected float width;
 		protected float height;
+		protected float scale;
 
 
 
