@@ -12,6 +12,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
+import sun.font.GlyphLayout;
+
 
 /**
  * Created by urvaius on 11/12/14.
@@ -23,10 +26,6 @@ public class GameScreen extends Screen
 
 		private EntityManager entityManager;
 		private BitmapFont scoreFont;
-
-
-
-
 
 
 		@Override
@@ -41,6 +40,7 @@ public class GameScreen extends Screen
 				entityManager = new EntityManager(10,camera);
 				Assets.gameMusic.isLooping();
 				Assets.gameMusic.play();
+				//TODO: fix
 				scoreFont = new BitmapFont();
 				scoreFont.setColor(Color.WHITE);
 
@@ -84,6 +84,10 @@ public class GameScreen extends Screen
 
 				sb.draw(Assets.gameBack,0,0);
 				sb.draw(Assets.shootButton,0,0);
+
+				//TODO: fix
+				// for 1.56 need to change this. to glyphlayout
+				//GlyphLayout gl = new GlyphLayout(scoreFont,"Score");
 				scoreFont.draw(sb,"SCORE " + entityManager.playerScore, SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
 
 				entityManager.render(sb);
@@ -102,7 +106,9 @@ public class GameScreen extends Screen
 		public void dispose()
 			{
 				Assets.gameMusic.dispose();
-				scoreFont.dispose();
+
+				//todo: fix
+				//scoreFont.dispose();
 
 			}
 
