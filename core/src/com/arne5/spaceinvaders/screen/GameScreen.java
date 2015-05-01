@@ -89,6 +89,9 @@ public class GameScreen extends Screen
 				// for 1.56 need to change this. to glyphlayout
 				//GlyphLayout gl = new GlyphLayout(scoreFont,"Score");
 				scoreFont.draw(sb,"SCORE " + entityManager.playerScore, SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
+				//scoreFont.draw(sb,"Score",20,20);
+
+
 
 				entityManager.render(sb);
 
