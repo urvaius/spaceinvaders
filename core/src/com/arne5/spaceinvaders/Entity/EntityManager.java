@@ -18,6 +18,7 @@ public class EntityManager
 		private final Array<Entity> entities = new Array<Entity>();
 		private final Player player;
 		public int playerScore;
+		public int playerLives;
 
 
 
@@ -25,6 +26,7 @@ public class EntityManager
 		public EntityManager(int amount, OrthoCamera camera)
 			{   player = new Player(new Vector2(230,15),new Vector2(0,0),Assets.PLAYER.getWidth(),Assets.PLAYER.getHeight(),this,camera);
 				player.setScore(0);
+				player.setLives(3);
 
 
 
@@ -69,6 +71,8 @@ public class EntityManager
 				player.update();
 				checkCollisions();
 				playerScore = player.getScore();
+				playerLives = player.getLives();
+
 
 			}
 		public void render(SpriteBatch sb)

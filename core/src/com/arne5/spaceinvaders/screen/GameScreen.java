@@ -95,12 +95,12 @@ public class GameScreen extends Screen
 
 				layout.setText(scoreFont, "Score " + entityManager.playerScore);
 				scoreFont.draw(sb, layout, SpaceInvaders.WIDTH / 2 - 20, SpaceInvaders.HEIGHT - layout.height);
-				layout.setText(lifeFont, "Lives Left");
+				layout.setText(lifeFont, "Lives Left "+ entityManager.playerLives);
 
 				lifeFont.draw(sb,layout,0 + layout.width /2,SpaceInvaders.HEIGHT -layout.height);
 
 
-
+				// thtis is the old way.
 				//scoreFont.draw(sb,"SCORE " + entityManager.playerScore, SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
 				//scoreFont.draw(sb,"Score",20,20);
 

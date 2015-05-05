@@ -23,17 +23,27 @@ public class Player extends Entity
 				return score;
 			}
 
+
 		public void setScore(int score)
 			{
 				this.score = score;
 			}
+
+
+
+		private int lives;
+		public int getLives(){return lives;}
+
+		public void setLives(int lives){this.lives = lives;}
+
+
 
 		public Player(Vector2 pos, Vector2 direction,Float width,Float height, EntityManager entityManager,OrthoCamera camera)
 			{
 				super(Assets.PLAYER, pos, direction,width,height);
 				this.entityManager= entityManager;
 				this.camera = camera;
-
+				this.lives = 3;
 				this.score = 0;
 
 
