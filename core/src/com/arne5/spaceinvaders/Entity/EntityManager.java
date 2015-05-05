@@ -114,9 +114,21 @@ public class EntityManager
 									}
 
 							}
+						//TODO: need to fix this overlapping and scoring to be one method
 						if (e.getBounds().overlaps((player.getBounds())))
 							{
-								ScreenManager.setScreen((new GameOverScreen(false)));
+
+								entities.removeValue(e,false);
+
+								if (playerLives == 0)
+									{
+										ScreenManager.setScreen(new GameOverScreen(false));
+									}
+								else
+									{
+										player.setLives(player.getLives() -1);
+									}
+
 							}
 					}
 
@@ -142,8 +154,18 @@ public class EntityManager
 						if (e.getBounds().overlaps(player.getBounds()))
 							{
 								//make lose life instead
+								entities.removeValue(e,false);
 
-								ScreenManager.setScreen(new GameOverScreen(false));
+								if (playerLives == 1)
+									{
+										ScreenManager.setScreen(new GameOverScreen(false));
+									}
+								else
+									{
+										player.setLives(player.getLives() -1);
+									}
+
+
 
 								//ScreenManager.setScreen(new GameStartScreen());
 
