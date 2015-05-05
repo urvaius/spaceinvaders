@@ -13,7 +13,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
-import sun.font.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 
 /**
@@ -26,6 +26,7 @@ public class GameScreen extends Screen
 
 		private EntityManager entityManager;
 		private BitmapFont scoreFont;
+		private GlyphLayout layout;
 
 
 		@Override
@@ -43,6 +44,7 @@ public class GameScreen extends Screen
 				//TODO: fix
 				scoreFont = new BitmapFont();
 				scoreFont.setColor(Color.WHITE);
+				layout = new GlyphLayout();
 
 
 
@@ -88,7 +90,11 @@ public class GameScreen extends Screen
 				//TODO: fix
 				// for 1.56 need to change this. to glyphlayout
 				//GlyphLayout gl = new GlyphLayout(scoreFont,"Score");
-				scoreFont.draw(sb,"SCORE " + entityManager.playerScore, SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
+
+				layout.setText(scoreFont, "Score " + entityManager.playerScore);
+
+				scoreFont.draw(sb,layout,SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
+				//scoreFont.draw(sb,"SCORE " + entityManager.playerScore, SpaceInvaders.WIDTH /2 -20 ,SpaceInvaders.HEIGHT -20);
 				//scoreFont.draw(sb,"Score",20,20);
 
 
