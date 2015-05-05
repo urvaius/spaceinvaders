@@ -19,6 +19,9 @@ public class EntityManager
 		private final Player player;
 		public int playerScore;
 		public int playerLives;
+		public int level;
+		private boolean runLevel2 = true;
+		private boolean runLevel3 = true;
 
 
 
@@ -27,27 +30,31 @@ public class EntityManager
 			{   player = new Player(new Vector2(230,15),new Vector2(0,0),Assets.PLAYER.getWidth(),Assets.PLAYER.getHeight(),this,camera);
 				player.setScore(0);
 				player.setLives(3);
+				player.setLevel(1);
+				level = player.getLevel();
 
 
 
-				for(int i=0;i <amount;i++)
-				{
-					float x = MathUtils.random(0, SpaceInvaders.WIDTH- Assets.ENEMY.getWidth());
-					float y = MathUtils.random(SpaceInvaders.HEIGHT, SpaceInvaders.HEIGHT *3);
-					float speed = MathUtils.random(2,5);
-					//added height and widht as 1f and 1f need to try
-					AddEntity(new Enemy(new Vector2(x,y),new Vector2(0,-speed),Assets.ENEMY.getWidth(),Assets.ENEMY.getHeight()));
 
-				}
+						for(int i=0;i <amount;i++)
+							{
+								float x = MathUtils.random(0, SpaceInvaders.WIDTH- Assets.ENEMY.getWidth());
+								float y = MathUtils.random(SpaceInvaders.HEIGHT, SpaceInvaders.HEIGHT *3);
+								float speed = MathUtils.random(2,5);
+								//added height and widht as 1f and 1f need to try
+								AddEntity(new Enemy(new Vector2(x,y),new Vector2(0,-speed),Assets.ENEMY.getWidth(),Assets.ENEMY.getHeight()));
 
-				for(int i=0;i <amount;i++)
-					{
-						float x = MathUtils.random(0,SpaceInvaders.WIDTH-Assets.greenEnemy.getWidth());
-						float y = MathUtils.random(SpaceInvaders.HEIGHT,SpaceInvaders.HEIGHT*3);
-						float speed = MathUtils.random(2,5);
-						AddEntity(new GreenEnemy(new Vector2(x,y),new Vector2(0,-speed),Assets.greenEnemy.getWidth(),Assets.greenEnemy.getHeight()));
+							}
 
-					}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -72,6 +79,8 @@ public class EntityManager
 				checkCollisions();
 				playerScore = player.getScore();
 				playerLives = player.getLives();
+				level = player.getLevel();
+				checkLevel();
 
 
 			}
@@ -85,6 +94,68 @@ public class EntityManager
 				player.render(sb);
 
 
+
+			}
+
+
+
+		private void checkLevel()
+		{
+
+			if (player.getScore() ==15)
+				{
+					player.setLevel(2);
+					level2();
+
+
+				}
+			else if(player.getScore() ==30)
+				{
+					player.setLevel(3);
+					level3();
+				}
+
+
+		}
+
+
+		private void level2()
+			{
+
+
+				if(runLevel2)
+					{
+						for(int i=0;i <10;i++)
+							{
+								float x = MathUtils.random(0,SpaceInvaders.WIDTH-Assets.greenEnemy.getWidth());
+								float y = MathUtils.random(SpaceInvaders.HEIGHT,SpaceInvaders.HEIGHT*3);
+								float speed = MathUtils.random(2,5);
+								AddEntity(new GreenEnemy(new Vector2(x,y),new Vector2(0,-speed),Assets.greenEnemy.getWidth(),Assets.greenEnemy.getHeight()));
+
+							}
+						runLevel2 =false;
+
+					}
+
+			}
+
+		private void level3()
+			{
+
+
+				if(runLevel3)
+					{
+						for(int i=0;i <10;i++)
+							{
+								float x = MathUtils.random(0,SpaceInvaders.WIDTH-Assets.blackEnemy.getWidth());
+								float y = MathUtils.random(SpaceInvaders.HEIGHT,SpaceInvaders.HEIGHT*3);
+								float speed = MathUtils.random(2,5);
+								AddEntity(new BlackEnemy(new Vector2(x,y),new Vector2(0,-speed),Assets.blackEnemy.getWidth(),Assets.blackEnemy.getHeight()));
+
+							}
+						runLevel3 =false;
+
+					}
 
 			}
 
@@ -118,7 +189,7 @@ public class EntityManager
 						if (e.getBounds().overlaps((player.getBounds())))
 							{
 
-								entities.removeValue(e,false);
+								entities.removeValue(e, false);
 
 								if (playerLives == 0)
 									{
@@ -131,6 +202,45 @@ public class EntityManager
 
 							}
 					}
+
+				for(BlackEnemy e:getBlackEnemies())
+					{
+						for(Missile m:getMissiles())
+							{
+								if(e.getBounds().overlaps(m.getBounds()))
+									{
+										entities.removeValue(e,false);
+										entities.removeValue(m,false);
+										player.setScore(player.getScore()+10);
+										if(gameOver())
+											{
+
+												//if won
+												ScreenManager.setScreen(new GameOverScreen(true));
+											}
+
+									}
+
+							}
+						//TODO: need to fix this overlapping and scoring to be one method
+						if (e.getBounds().overlaps((player.getBounds())))
+							{
+
+								entities.removeValue(e, false);
+
+								if (playerLives == 0)
+									{
+										ScreenManager.setScreen(new GameOverScreen(false));
+									}
+								else
+									{
+										player.setLives(player.getLives() -1);
+									}
+
+							}
+					}
+
+
 
 
 				for(Enemy e:getEnemies())
@@ -193,6 +303,19 @@ public class EntityManager
 				return ret;
 			}
 
+		private Array<BlackEnemy> getBlackEnemies()
+			{
+				Array<BlackEnemy> ret = new Array<BlackEnemy>();
+				for(Entity e : entities)
+					{
+						if(e instanceof BlackEnemy)
+							{
+								ret.add((BlackEnemy)e);
+							}
+					}
+				return ret;
+			}
+
 		private Array<Enemy> getEnemies()
 			{
 				Array<Enemy> ret =new Array<Enemy>();
@@ -225,7 +348,7 @@ public class EntityManager
 			{
 
 
-				return getGreenEnemies().size <=0;
+				return getEnemies().size <=0;
 
 
 

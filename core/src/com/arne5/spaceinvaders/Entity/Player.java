@@ -18,6 +18,12 @@ public class Player extends Entity
 		private final OrthoCamera camera;
 		private long lastFire;
 		private int score;
+		private int level;
+
+		public int getLevel(){return level;}
+		public void setLevel(int level){this.level = level;};
+
+
 		public int getScore()
 			{
 				return score;
@@ -45,6 +51,7 @@ public class Player extends Entity
 				this.camera = camera;
 				this.lives = 3;
 				this.score = 0;
+				this.level =1;
 
 
 
@@ -55,6 +62,7 @@ public class Player extends Entity
 			{
 
 				pos.add(direction);
+				//add scores
 
 
 				// shoot button?

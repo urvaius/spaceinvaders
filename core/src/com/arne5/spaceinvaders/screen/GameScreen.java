@@ -27,6 +27,7 @@ public class GameScreen extends Screen
 		private EntityManager entityManager;
 		private BitmapFont scoreFont;
 		private BitmapFont lifeFont;
+		private BitmapFont levelFont;
 		private GlyphLayout layout;
 
 
@@ -48,6 +49,8 @@ public class GameScreen extends Screen
 
 				lifeFont = new BitmapFont();
 				lifeFont.setColor(Color.WHITE);
+				levelFont = new BitmapFont();
+				levelFont.setColor(Color.WHITE);
 				layout = new GlyphLayout();
 
 
@@ -95,9 +98,11 @@ public class GameScreen extends Screen
 
 				layout.setText(scoreFont, "Score " + entityManager.playerScore);
 				scoreFont.draw(sb, layout, SpaceInvaders.WIDTH / 2 - 20, SpaceInvaders.HEIGHT - layout.height);
-				layout.setText(lifeFont, "Lives Left "+ entityManager.playerLives);
+				layout.setText(lifeFont, "Lives Left " + entityManager.playerLives);
 
-				lifeFont.draw(sb,layout,0 + layout.width /2,SpaceInvaders.HEIGHT -layout.height);
+				lifeFont.draw(sb, layout, 0 + 10 , SpaceInvaders.HEIGHT - layout.height);
+				layout.setText(levelFont, "Level " + entityManager.level);
+				levelFont.draw(sb,layout,0 + 10 , SpaceInvaders.HEIGHT - lifeFont.getXHeight() -layout.height*2 );
 
 
 				// thtis is the old way.
