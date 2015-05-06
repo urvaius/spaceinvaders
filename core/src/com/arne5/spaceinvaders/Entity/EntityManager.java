@@ -102,18 +102,26 @@ public class EntityManager
 		private void checkLevel()
 		{
 
-			if (player.getScore() ==15)
+
+
+			if (player.getScore() >=15 && player.getScore() <=29)
 				{
 					player.setLevel(2);
 					level2();
 
 
 				}
-			else if(player.getScore() ==30)
+			else if(player.getScore() >=30 )
 				{
 					player.setLevel(3);
 					level3();
 				}
+
+			else
+			{
+				player.setLevel(1);
+
+			}
 
 
 		}
