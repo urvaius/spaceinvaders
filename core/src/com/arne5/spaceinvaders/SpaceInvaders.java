@@ -6,12 +6,15 @@ import com.arne5.spaceinvaders.screen.GameStartScreen;
 import com.arne5.spaceinvaders.screen.ScreenManager;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class SpaceInvaders extends ApplicationAdapter
 	{
 		public static int WIDTH =480,HEIGHT =800;
+
+
 
 		private SpriteBatch batch;
 

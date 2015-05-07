@@ -4,6 +4,8 @@ import com.arne5.spaceinvaders.Assets;
 import com.arne5.spaceinvaders.SpaceInvaders;
 import com.arne5.spaceinvaders.camera.OrthoCamera;
 import com.arne5.spaceinvaders.screen.*;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -22,6 +24,9 @@ public class EntityManager
 		public int level;
 		private boolean runLevel2 = true;
 		private boolean runLevel3 = true;
+		public Preferences prefs = Gdx.app.getPreferences("GamePref");
+
+
 
 
 
@@ -32,6 +37,7 @@ public class EntityManager
 				player.setLives(3);
 				player.setLevel(1);
 				level = player.getLevel();
+
 
 
 
@@ -201,6 +207,7 @@ public class EntityManager
 
 								if (playerLives == 0)
 									{
+
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
@@ -238,6 +245,7 @@ public class EntityManager
 
 								if (playerLives == 0)
 									{
+										prefs.putInteger("HighScore", player.getScore());
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
@@ -276,6 +284,10 @@ public class EntityManager
 
 								if (playerLives == 1)
 									{
+
+										//try to add hightscore
+										prefs.putInteger("HighScore", player.getScore());
+
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
