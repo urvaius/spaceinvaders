@@ -14,6 +14,7 @@ public class SpaceInvaders extends ApplicationAdapter
 	{
 		public static int WIDTH =480,HEIGHT =800;
 
+		public Preferences prefs;
 
 
 		private SpriteBatch batch;
@@ -23,6 +24,8 @@ public class SpaceInvaders extends ApplicationAdapter
 	public void create ()
 		{
 			batch = new SpriteBatch();
+			prefs =  Gdx.app.getPreferences("GamePref");
+
 			//ScreenManager.setScreen(new GameScreen());
 			//try new game with using atlas
 

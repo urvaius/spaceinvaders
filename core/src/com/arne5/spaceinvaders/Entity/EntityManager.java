@@ -24,7 +24,8 @@ public class EntityManager
 		public int level;
 		private boolean runLevel2 = true;
 		private boolean runLevel3 = true;
-		public Preferences prefs = Gdx.app.getPreferences("GamePref");
+
+
 
 
 
@@ -37,7 +38,7 @@ public class EntityManager
 				player.setLives(3);
 				player.setLevel(1);
 				level = player.getLevel();
-
+				//prefs.putInteger("HighScore", 50);
 
 
 
@@ -87,6 +88,10 @@ public class EntityManager
 				playerLives = player.getLives();
 				level = player.getLevel();
 				checkLevel();
+
+
+
+
 
 
 			}
@@ -205,9 +210,9 @@ public class EntityManager
 
 								entities.removeValue(e, false);
 
-								if (playerLives == 0)
+								if (playerLives == 1)
 									{
-
+										Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
@@ -231,6 +236,7 @@ public class EntityManager
 											{
 
 												//if won
+												Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
 												ScreenManager.setScreen(new GameOverScreen(true));
 											}
 
@@ -243,9 +249,9 @@ public class EntityManager
 
 								entities.removeValue(e, false);
 
-								if (playerLives == 0)
-									{
-										prefs.putInteger("HighScore", player.getScore());
+								if (playerLives == 1)
+									{   //todo: trying to get preferences to put highscore here
+										Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
@@ -286,7 +292,7 @@ public class EntityManager
 									{
 
 										//try to add hightscore
-										prefs.putInteger("HighScore", player.getScore());
+										Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
 
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}

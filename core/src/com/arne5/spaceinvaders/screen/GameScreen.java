@@ -29,6 +29,7 @@ public class GameScreen extends Screen
 		private BitmapFont lifeFont;
 		private BitmapFont levelFont;
 		private GlyphLayout layout;
+		private BitmapFont highScoreFont;
 
 
 		@Override
@@ -51,7 +52,10 @@ public class GameScreen extends Screen
 				lifeFont.setColor(Color.WHITE);
 				levelFont = new BitmapFont();
 				levelFont.setColor(Color.WHITE);
+				highScoreFont = new BitmapFont();
+				highScoreFont.setColor(Color.WHITE);
 				layout = new GlyphLayout();
+
 
 
 
@@ -100,9 +104,13 @@ public class GameScreen extends Screen
 				scoreFont.draw(sb, layout, SpaceInvaders.WIDTH / 2 - 20, SpaceInvaders.HEIGHT - layout.height);
 				layout.setText(lifeFont, "Lives Left " + entityManager.playerLives);
 
-				lifeFont.draw(sb, layout, 0 + 10 , SpaceInvaders.HEIGHT - layout.height);
+				lifeFont.draw(sb, layout,  10 , SpaceInvaders.HEIGHT - layout.height);
 				layout.setText(levelFont, "Level " + entityManager.level);
-				levelFont.draw(sb,layout,0 + 10 , SpaceInvaders.HEIGHT - lifeFont.getXHeight() -layout.height*2 );
+				levelFont.draw(sb,layout, 10 , SpaceInvaders.HEIGHT - lifeFont.getXHeight() -layout.height*2 );
+
+				layout.setText(highScoreFont, "HighScore " + Gdx.app.getPreferences("GamePref").getInteger("HighScore") );
+
+				highScoreFont.draw(sb,layout, 10 , SpaceInvaders.HEIGHT - lifeFont.getXHeight() -layout.height*2 - scoreFont.getXHeight()*2 );
 
 
 				// thtis is the old way.
