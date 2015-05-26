@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.math.Vector2;
+
 
 /**
  * Created by urvaius on 9/21/14.
@@ -19,6 +21,7 @@ public class GameOverScreen extends Screen
 	{
 		private OrthoCamera camera;
 		private Sprite sprite;
+		private Sprite restartButton;
 		private BitmapFont highScoreFont;
 		private GlyphLayout layout;
 
@@ -46,6 +49,7 @@ public class GameOverScreen extends Screen
 				highScoreFont = new BitmapFont();
 				highScoreFont.setColor(Color.WHITE);
 				layout = new GlyphLayout();
+				restartButton = Assets.restartButton;
 
 
 				Gdx.app.getPreferences("GamePref").flush();
@@ -54,9 +58,22 @@ public class GameOverScreen extends Screen
 
 		@Override
 		public void update()
+
 			{
 				camera.update();
 			}
+
+
+
+		/*if(Gdx.input.isTouched())
+
+		{
+			Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
+			if (touch.x < 0 + Assets.restartButton.getWidth() && touch.y < 0 + Assets.restartButton.getHeight())
+				{
+
+				}
+		}*/
 
 		@Override
 		public void render(SpriteBatch sb)
@@ -68,7 +85,7 @@ public class GameOverScreen extends Screen
 				layout.setText(highScoreFont, "HighScore "+ Gdx.app.getPreferences("GamePref").getInteger("HighScore"));
 
 				highScoreFont.draw(sb,layout, 10 , SpaceInvaders.HEIGHT - highScoreFont.getXHeight() -layout.height*2 );
-
+				sb.draw(restartButton,0,0);
 				sb.end();
 			}
 

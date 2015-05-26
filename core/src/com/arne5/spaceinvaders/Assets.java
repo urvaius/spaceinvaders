@@ -30,6 +30,7 @@ public class Assets
 		public static Sprite gameBack;
 		public static Sprite gameWon;
 		public static Sprite gameOver;
+		public static Sprite restartButton;
 		public static Sound laser;
 		public static Music gameMusic;
 		//public static Sprite paused;
@@ -48,7 +49,7 @@ public class Assets
 
 				PLAYER.setSize(PLAYER.getWidth()/2,PLAYER.getHeight()/2);
 
-
+				restartButton= atlas.createSprite("restart");
 				shootButton = atlas.createSprite("powerupBlue");
 				startScreen = atlas.createSprite("startscreen2");
 
