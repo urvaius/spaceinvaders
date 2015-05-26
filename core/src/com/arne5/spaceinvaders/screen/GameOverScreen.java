@@ -61,19 +61,23 @@ public class GameOverScreen extends Screen
 
 			{
 				camera.update();
+
+
+				if(Gdx.input.isTouched())
+					{
+						Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
+						if (touch.x < 0 + Assets.restartButton.getWidth() && touch.y < 0 + Assets.restartButton.getHeight())
+							{
+								ScreenManager.setScreen(new GameScreen());
+							}
+
+					}
 			}
 
 
 
-		/*if(Gdx.input.isTouched())
 
-		{
-			Vector2 touch = camera.unprojectCoordinates(Gdx.input.getX(), Gdx.input.getY());
-			if (touch.x < 0 + Assets.restartButton.getWidth() && touch.y < 0 + Assets.restartButton.getHeight())
-				{
 
-				}
-		}*/
 
 		@Override
 		public void render(SpriteBatch sb)
