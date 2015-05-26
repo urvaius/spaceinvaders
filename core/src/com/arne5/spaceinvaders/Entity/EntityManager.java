@@ -212,7 +212,8 @@ public class EntityManager
 
 								if (playerLives == 1)
 									{
-										Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+										//Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+										highscore();
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
@@ -236,7 +237,8 @@ public class EntityManager
 											{
 
 												//if won
-												Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+												//Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+												highscore();
 												ScreenManager.setScreen(new GameOverScreen(true));
 											}
 
@@ -251,7 +253,8 @@ public class EntityManager
 
 								if (playerLives == 1)
 									{   //todo: trying to get preferences to put highscore here
-										Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+										//Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+										highscore();
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
 								else
@@ -277,6 +280,7 @@ public class EntityManager
 										if(gameOver())
 											{
 												//if won
+												highscore();
 												ScreenManager.setScreen(new GameOverScreen(true));
 											}
 
@@ -292,7 +296,8 @@ public class EntityManager
 									{
 
 										//try to add hightscore
-										Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+										highscore();
+										//Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
 
 										ScreenManager.setScreen(new GameOverScreen(false));
 									}
@@ -369,6 +374,16 @@ public class EntityManager
 							}
 					}
 				return ret;
+			}
+
+
+		public void highscore()
+			{
+				int prefScore;
+				prefScore = Gdx.app.getPreferences("GamePref").getInteger("HighScore");
+				if(prefScore < player.getScore())
+				Gdx.app.getPreferences("GamePref").putInteger("HighScore", player.getScore());
+
 			}
 		public boolean gameOver()
 			{
